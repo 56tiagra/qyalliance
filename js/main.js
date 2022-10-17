@@ -68,7 +68,7 @@
     // Gallery carousel
     $(".gallery-carousel").owlCarousel({
         autoplay: false,
-        smartSpeed: 1500,
+        smartSpeed: 500,
         dots: false,
         loop: true,
         nav : true,
@@ -109,6 +109,9 @@
             '<i class="fa fa-angle-right" aria-hidden="true"></i>'
         ],
     });
+    $('.carousel').carousel({
+      interval: 3000
+    })
     
 })(jQuery);
 
