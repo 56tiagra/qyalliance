@@ -20,13 +20,16 @@
         theme: {
           extend: {
             colors: {
-              "primary": "#137fec",
+              "primary": "#003366",
+              "accent": "#E67E22",
               "background-light": "#f6f7f8",
               "background-dark": "#101922",
               "deep-ocean-blue": "#003366",
               "sandy-beige": "#F5EFE6",
               "sunset-orange": "#FF7A00",
               "dark-charcoal": "#333333",
+              "text-light": "#003366",
+              "text-dark": "#FFFFFF",
             },
             fontFamily: {
               "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
@@ -41,26 +44,43 @@
 <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
 <div class="flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-10 py-4">
-<a href="/" class="flex items-center gap-4 text-deep-ocean-blue dark:text-white">
-<div class="size-6">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1 w-full">
+<header class="sticky top-0 z-50 flex w-full justify-center border-b border-solid border-primary/20 dark:border-primary/30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm relative px-4 sm:px-6 lg:px-8 py-3">
+<div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap">
+<a href="/" class="flex items-center gap-4 text-primary dark:text-text-dark">
+<div class="size-6 text-primary dark:text-accent">
 <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
 </svg>
 </div>
-<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">QY Alliance Travel</h2>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em] text-primary dark:text-text-dark">QY Alliance Travel</h2>
 </a>
+<button id="mobile-menu-button" class="md:hidden flex items-center justify-center w-10 h-10 text-primary dark:text-text-dark hover:text-accent dark:hover:text-accent" aria-label="Toggle menu">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
 <nav class="hidden md:flex flex-1 justify-center items-center gap-9">
-<a class="text-dark-charcoal dark:text-gray-300 text-sm font-medium leading-normal hover:text-deep-ocean-blue dark:hover:text-white" href="/" data-translate="navHome">Home</a>
-<a class="text-dark-charcoal dark:text-gray-300 text-sm font-medium leading-normal hover:text-deep-ocean-blue dark:hover:text-white" href="/individual-travel" data-translate="navIndividualTravel">Individual Tours</a>
-<a class="text-deep-ocean-blue dark:text-white text-sm font-bold leading-normal" href="/group-tours" data-translate="navGroupTours">Group Tours</a>
-<a class="text-dark-charcoal dark:text-gray-300 text-sm font-medium leading-normal hover:text-deep-ocean-blue dark:hover:text-white" href="/about-us" data-translate="navAboutUs">About Us</a>
-<a class="text-dark-charcoal dark:text-gray-300 text-sm font-medium leading-normal hover:text-deep-ocean-blue dark:hover:text-white" href="/about-us#contact" data-translate="navContact">Contact</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="/" data-translate="navHome">Home</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="/group-tours" data-translate="navGroupTours">Group Tours</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="/individual-travel" data-translate="navIndividualTravel">Individual Travel</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="/about-us" data-translate="navAboutUs">About Us</a>
 </nav>
-<button class="lang-toggle flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-deep-ocean-blue text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+<div class="flex items-center gap-2">
+<button class="lang-toggle flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-transparent border border-primary text-primary dark:text-text-dark dark:border-text-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/10 dark:hover:bg-primary/20">
 <span class="truncate" data-translate="langToggle">EN / 中文</span>
 </button>
+<a href="/about-us#contact" class="hidden sm:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-accent text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-accent/90">
+<span class="truncate" data-translate="contactUs">Contact Us</span>
+</a>
+</div>
+</div>
+<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-background-light dark:bg-background-dark border-b border-primary/20 dark:border-primary/30 flex flex-col py-4 z-50">
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent px-4 py-2" href="/" data-translate="navHome">Home</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent px-4 py-2" href="/group-tours" data-translate="navGroupTours">Group Tours</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent px-4 py-2" href="/individual-travel" data-translate="navIndividualTravel">Individual Travel</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent px-4 py-2" href="/about-us" data-translate="navAboutUs">About Us</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent px-4 py-2" href="/about-us#contact" data-translate="contactUs">Contact Us</a>
+</div>
 </header>
 <main>
 <div class="@container px-4 md:px-0">
@@ -76,6 +96,9 @@
 </a>
 <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-sandy-beige text-deep-ocean-blue text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors" href="#contact">
 <span class="truncate" data-translate="contactCustomTour">Contact Us for a Custom Tour / 定制旅游联系我们</span>
+</a>
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-sunset-orange text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors" href="/2025-墨爾本一日遊4月1日起.pdf" target="_blank">
+<span class="truncate">Download Tour Brochure / 下载旅游手册</span>
 </a>
 </div>
 </div>

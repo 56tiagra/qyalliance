@@ -48,7 +48,7 @@
 <body class="bg-background-light dark:bg-background-dark font-display">
 <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
-<header class="sticky top-0 z-50 flex w-full justify-center border-b border-solid border-primary/20 dark:border-primary/30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<header class="sticky top-0 z-50 flex w-full justify-center border-b border-solid border-primary/20 dark:border-primary/30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm relative">
 <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
 <a href="/" class="flex items-center gap-4 text-primary dark:text-text-dark">
 <div class="size-6 text-primary dark:text-accent">
@@ -59,11 +59,20 @@
 </div>
 <h2 class="text-xl font-bold leading-tight tracking-[-0.015em] text-primary dark:text-text-dark">QY Alliance Travel</h2>
 </a>
+<button id="mobile-menu-button" class="md:hidden flex items-center justify-center w-10 h-10 text-primary dark:text-text-dark hover:text-accent dark:hover:text-accent" aria-label="Toggle menu">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
 <nav class="hidden md:flex flex-1 justify-center items-center gap-9">
 <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="/group-tours" data-translate="navGroupTours">Group Tours</a>
 <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="/individual-travel" data-translate="navIndividualTravel">Individual Travel</a>
 <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="/about-us" data-translate="navAboutUs">About Us</a>
 </nav>
+<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-background-light dark:bg-background-dark border-b border-primary/20 dark:border-primary/30 flex flex-col py-4 z-50">
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent px-4 py-2" href="/group-tours" data-translate="navGroupTours">Group Tours</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent px-4 py-2" href="/individual-travel" data-translate="navIndividualTravel">Individual Travel</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent px-4 py-2" href="/about-us" data-translate="navAboutUs">About Us</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent px-4 py-2" href="/about-us#contact" data-translate="contactUs">Contact Us</a>
+</div>
 <div class="flex items-center gap-2">
 <button class="lang-toggle flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-transparent border border-primary text-primary dark:text-text-dark dark:border-text-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/10 dark:hover:bg-primary/20">
 <span class="truncate" data-translate="langToggle">EN / 中文</span>
@@ -94,26 +103,26 @@
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-accent text-3xl">groups</span>
 <div>
-<p class="font-bold text-lg">Holiday XP &amp; G&amp;L Studio</p>
-<p class="text-sm text-white/80">Tailored experiences for every traveler.</p>
+<p class="font-bold text-lg" data-translate="heroBrands">Holiday XP &amp; G&amp;L Studio</p>
+<p class="text-sm text-white/80" data-translate="heroBrandsDesc">Tailored experiences for every traveler.</p>
 </div>
 </div>
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-accent text-3xl">calendar_today</span>
 <div>
-<p class="font-bold text-lg">15+ Years of Experience</p>
-<p class="text-sm text-white/80">Pioneering Australian tourism.</p>
+<p class="font-bold text-lg" data-translate="heroYears">15+ Years of Experience</p>
+<p class="text-sm text-white/80" data-translate="heroYearsDesc">Pioneering Australian tourism.</p>
 </div>
 </div>
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-accent text-3xl">directions_bus</span>
 <div>
-<p class="font-bold text-lg">100+ Vehicles</p>
-<p class="text-sm text-white/80">Comfortable and reliable fleet.</p>
+<p class="font-bold text-lg" data-translate="heroVehicles">100+ Vehicles</p>
+<p class="text-sm text-white/80" data-translate="heroVehiclesDesc">Comfortable and reliable fleet.</p>
 </div>
 </div>
 <div class="border-t border-white/20 mt-4 pt-4 text-sm text-white/80 text-center">
-<p>Contact Gordon: 0426 828 386 | theallianceau@hotmail.com</p>
+<p data-translate="heroContact">Contact Gordon: 0426 828 386 | theallianceau@hotmail.com</p>
 </div>
 </div>
 </div>
@@ -129,9 +138,9 @@
 <div class="flex flex-col gap-4 rounded-xl overflow-hidden bg-background-light dark:bg-background-dark shadow-lg">
 <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="A group of diverse friends laughing together on a scenic lookout over a blue bay" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1rUhRG-3Fu1lVMDPIkJ6DHdKrIPA-w2o_Zkk_0NgX-Z6mi1wiChrT6q5BLjw4QBD-diMuA6UMN6lrFJOpTQc2hW0Uz8o_uNX9dKhxQnHtM6jsQADfN-hJPWT51uxXR-yafQH2IxMXbKDXdSYDF0eNyYBeEozT5OJJEfYAnw6cnQiD02hTLH1l92rft5BeAgM7Fmt5-kmh-pol8iPGG24hBuWvCqn6e3k19RP91MDJ5ioDmp3Q7RCBJkIHrZOW4eUy1D3s805hbAbI");'></div>
 <div class="p-6 flex flex-col flex-grow">
-<p class="text-text-light dark:text-text-dark text-xl font-bold leading-normal">Holiday XP</p>
+<p class="text-text-light dark:text-text-dark text-xl font-bold leading-normal"><a href="https://www.qqqq.com.au/" target="_blank" rel="noopener noreferrer" class="hover:text-accent dark:hover:text-accent">Holiday XP</a></p>
 <p class="text-text-muted-light dark:text-text-muted-dark text-base font-normal leading-normal my-2 flex-grow" data-translate="holidayXPDesc">Your adventure awaits. Specializing in one-day, multi-day, inter-state, custom group tours, charter services, photography, exhibitions and event support.</p>
-<a class="inline-flex items-center gap-2 text-accent font-bold mt-4 hover:underline" href="/group-tours" data-translate="exploreToursLink">Explore Tours <span class="material-symbols-outlined">arrow_forward</span></a>
+<a class="inline-flex items-center gap-2 text-accent font-bold mt-4 hover:underline" href="https://www.qqqq.com.au/" target="_blank" rel="noopener noreferrer" data-translate="exploreToursLink">Explore Tours <span class="material-symbols-outlined">arrow_forward</span></a>
 </div>
 </div>
 <div class="flex flex-col gap-4 rounded-xl overflow-hidden bg-background-light dark:bg-background-dark shadow-lg">
@@ -229,7 +238,7 @@
 <div>
 <h3 class="font-bold" data-translate="footerOurBrands">Our Brands</h3>
 <ul class="mt-4 space-y-2 text-sm">
-<li><a class="text-white/80 hover:text-white" href="/group-tours">Holiday XP</a></li>
+<li><a class="text-white/80 hover:text-white" href="https://www.qqqq.com.au/" target="_blank" rel="noopener noreferrer">Holiday XP</a></li>
 <li><a class="text-white/80 hover:text-white" href="/individual-travel">G&amp;L Studio</a></li>
 </ul>
 </div>

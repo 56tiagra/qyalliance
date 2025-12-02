@@ -47,9 +47,37 @@
     initLanguage();
   }
   
+  // Mobile menu toggle
+  function initMobileMenu() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenuButton.querySelector('.material-symbols-outlined').textContent = 'close';
+        } else {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.querySelector('.material-symbols-outlined').textContent = 'menu';
+        }
+      });
+      
+      // Close menu when clicking on a link
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.querySelector('.material-symbols-outlined').textContent = 'menu';
+        });
+      });
+    }
+  }
+  
   // Add event listeners to language toggle buttons
   document.addEventListener('DOMContentLoaded', function() {
     initLanguage();
+    initMobileMenu();
     
     // Find all language toggle buttons
     document.querySelectorAll('.lang-toggle, [data-lang-toggle]').forEach(button => {
